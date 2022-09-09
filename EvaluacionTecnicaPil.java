@@ -28,15 +28,13 @@ public class EvaluacionTecnicaPil {
 
         imprimirConsigna(1);
         //declaracion de variables
-        int numeroUno, resultadoUno, resultadoDos;
-        char caracterA;
+        int numeroUno, numeroDos, resultadoUno, resultadoDos;
         boolean booleanoUno;
 
         imprimirConsigna(2);
         //inicializacion de variables
         numeroUno = 1;
         numeroDos = 2;
-        caracterA = "A";
         booleanoUno = true;
 
         //operaciones matematicas
