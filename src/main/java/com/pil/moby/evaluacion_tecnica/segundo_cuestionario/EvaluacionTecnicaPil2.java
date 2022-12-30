@@ -4,10 +4,7 @@ package com.pil.moby.evaluacion_tecnica.segundo_cuestionario;
 import com.pil.moby.evaluacion_tecnica.modelo.pojo.Candidato;
 import com.pil.moby.evaluacion_tecnica.modelo.pojo.Tecnologia;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class EvaluacionTecnicaPil2 {
@@ -39,7 +36,7 @@ public class EvaluacionTecnicaPil2 {
         imprimirMensajePunto(3);
 
         // Desarrollo de la consigna 3.
-        resolverPunto3();
+        //resolverPunto3(inicializarCandidatos());
 
         imprimirMensajePunto(4);
 
@@ -65,8 +62,11 @@ public class EvaluacionTecnicaPil2 {
 
     private static void resolverPunto2(List<Candidato> candidatos) {
         // TODO: Realizar implementación.
-        
+        Stream<Candidato> streamCandidatos = candidatos.stream()
+                .sorted();
+
         // Ordenamiento Burbuja
+        /*
         for (int i = candidatos.size() - 1; i > 0 ; i--) {
             for (int j = 0; j < i; j++) {
                 if (candidatos.get(j).compareTo(candidatos.get(j+1)) > 0) {
@@ -76,16 +76,35 @@ public class EvaluacionTecnicaPil2 {
                 }
             }
         }
-        candidatos.forEach(c -> {
+         */
+        streamCandidatos.forEach(c -> {
             System.out.println("ID: " + c.getId() +
                     ", Nombre y Apellido: " + c.getNombre() + " " + c.getApellido() );
         });
-
     }
 
-    private static void resolverPunto3() {
+    /*private static void resolverPunto3(List<Candidato> candidatos) {
         // TODO: Realizar implementación.
+        Stream<Candidato> streamCandidatos = candidatos.stream()
+                .sorted(candidatoComparatorSalarioDescendente());
+
+        streamCandidatos.forEach(c -> {
+            System.out.println("Pretencion Salarial: $" + c.getPretencionSalarial() + '\n' +
+                    ("Nombre y Apellido: " + c.getNombre() + " " + c.getApellido()) + '\n' +
+                    "--------------------------------------");
+        });
     }
+
+    private static Comparator<Candidato> candidatoComparatorSalarioDescendente() {
+        return new Comparator<Candidato>() {
+            @Override
+            public int compare(Candidato o1, Candidato o2) {
+                return Integer.compare(0, o1.getPretencionSalarial().compareTo(o2.getPretencionSalarial()));
+            }
+        };
+    }
+
+     */
 
     private static void resolverPunto4() {
         // TODO: Realizar implementación.
