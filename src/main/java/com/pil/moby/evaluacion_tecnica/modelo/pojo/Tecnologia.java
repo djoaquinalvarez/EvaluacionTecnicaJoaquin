@@ -43,7 +43,7 @@ public class Tecnologia {
 
     @Override
     public String toString() {
-        return "id=" + id +
-                ", nombre='" + nombre;
+        return "Tecnologia: " + nombre +
+                " (ID: " + id + ")";
     }
 }

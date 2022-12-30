@@ -85,9 +85,8 @@ public class Candidato {
 
     @Override
     public String toString() {
-        return nombre + " " +  apellido + '\'' +
-                ", aniosExperiencia=" + aniosExperiencia + '\'' +
-                ", pretencionSalarial=" + pretencionSalarial + '\'' +
-                ", tecnologias=" + tecnologias;
+        return "--------------Candidato: " + nombre + " " + apellido + "--------------" + '\n' +
+                "Anios de Experiencia: " + aniosExperiencia + " anios" + '\n' +
+                "Pretencion Salarial: $" + pretencionSalarial;
     }
 }
