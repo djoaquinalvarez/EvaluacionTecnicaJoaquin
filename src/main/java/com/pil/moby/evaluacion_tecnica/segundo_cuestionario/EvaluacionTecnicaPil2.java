@@ -41,7 +41,7 @@ public class EvaluacionTecnicaPil2 {
         imprimirMensajePunto(4);
 
         // Desarrollo de la consigna 3.
-        resolverPunto4();
+        resolverPunto4(inicializarCandidatos());
 
         imprimirMensajePunto(5);
 
@@ -106,9 +106,25 @@ public class EvaluacionTecnicaPil2 {
     }
 
 
-    private static void resolverPunto4() {
+    private static void resolverPunto4(List<Candidato> candidatos) {
         // TODO: Realizar implementación.
+        Candidato candidatoMasExperiencia = candidatos.stream()
+                .max(candidatoComparatorAniosExperiencia())
+                .orElseThrow();
+        System.out.println(candidatoMasExperiencia);
+        List<Tecnologia> tecnologiasOrdenadas = candidatoMasExperiencia.ordenarTecnologias();
+        tecnologiasOrdenadas.forEach(System.out::println);
     }
+
+    public static Comparator<Candidato> candidatoComparatorAniosExperiencia() {
+        return new Comparator<Candidato>() {
+            @Override
+            public int compare(Candidato o1, Candidato o2) {
+                return Integer.compare(o1.getAniosExperiencia().compareTo(o2.getAniosExperiencia()), 0);
+            }
+        };
+    }
+
 
     private static void resolverPunto5() {
         // TODO: Realizar implementación.

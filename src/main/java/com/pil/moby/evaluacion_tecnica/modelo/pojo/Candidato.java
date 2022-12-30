@@ -1,7 +1,10 @@
 package com.pil.moby.evaluacion_tecnica.modelo.pojo;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Candidato implements Comparable<Candidato>{
 
@@ -93,5 +96,20 @@ public class Candidato implements Comparable<Candidato>{
     @Override
     public int compareTo(Candidato o) {
         return this.id.compareTo(o.id);
+    }
+
+    public List<Tecnologia> ordenarTecnologias() {
+        Stream<Tecnologia> streamTecnologias = tecnologias.stream()
+                .sorted(tecnologiaComparatorPorNombre());
+        return streamTecnologias.toList();
+    }
+
+    public Comparator<Tecnologia> tecnologiaComparatorPorNombre() {
+        return new Comparator<Tecnologia>() {
+            @Override
+            public int compare(Tecnologia o1, Tecnologia o2) {
+                return Integer.compare(o1.getNombre().compareTo(o2.getNombre()), 0);
+            }
+        };
     }
 }
