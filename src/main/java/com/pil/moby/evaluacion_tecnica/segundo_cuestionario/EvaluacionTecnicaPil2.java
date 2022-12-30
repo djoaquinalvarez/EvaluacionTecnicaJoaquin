@@ -46,7 +46,7 @@ public class EvaluacionTecnicaPil2 {
         imprimirMensajePunto(5);
 
         // Desarrollo de la consigna 3.
-        resolverPunto5();
+        resolverPunto5(inicializarCandidatos());
 
     }
 
@@ -126,8 +126,30 @@ public class EvaluacionTecnicaPil2 {
     }
 
 
-    private static void resolverPunto5() {
+    private static void resolverPunto5(List<Candidato> candidatos) {
         // TODO: Realizar implementación.
+        Candidato candidatoMasTecnologias = candidatos.stream()
+                .max(candidatoComparatorCantidadTecnologias())
+                .orElseThrow();
+        System.out.println(candidatoMasTecnologias);
+
+        Tecnologia tecnologiaIdPar = candidatoMasTecnologias.getTecnologias().stream()
+                .filter(Tecnologia::esIdPar)
+                .findFirst()
+                .orElseThrow();
+        System.out.println(tecnologiaIdPar);
+    }
+
+    private static Comparator<Candidato> candidatoComparatorCantidadTecnologias() {
+        return new Comparator<Candidato>() {
+            @Override
+            public int compare(Candidato o1, Candidato o2) {
+                //Convierto valores a la clase Wrapper para poder usar el compareTo
+                Integer cantidadTecnologiasCandidato1 = o1.getTecnologias().size();
+                Integer cantidadTecnologiasCandidato2 = o2.getTecnologias().size();
+                return Integer.compare(cantidadTecnologiasCandidato1.compareTo(cantidadTecnologiasCandidato2), 0);
+            }
+        };
     }
 
     private static List<Candidato> inicializarCandidatos() {

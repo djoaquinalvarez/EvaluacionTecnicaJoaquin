@@ -1,6 +1,8 @@
 package com.pil.moby.evaluacion_tecnica.modelo.pojo;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 public class Tecnologia {
 
@@ -45,5 +47,9 @@ public class Tecnologia {
     public String toString() {
         return "Tecnologia: " + nombre +
                 " (ID: " + id + ")";
+    }
+
+    public static boolean esIdPar(Tecnologia tecnologia) {
+        return (tecnologia.getId() % 2) == 0;
     }
 }
