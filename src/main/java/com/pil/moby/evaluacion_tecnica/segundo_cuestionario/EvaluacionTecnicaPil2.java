@@ -36,7 +36,7 @@ public class EvaluacionTecnicaPil2 {
         imprimirMensajePunto(3);
 
         // Desarrollo de la consigna 3.
-        //resolverPunto3(inicializarCandidatos());
+        resolverPunto3(inicializarCandidatos());
 
         imprimirMensajePunto(4);
 
@@ -83,7 +83,8 @@ public class EvaluacionTecnicaPil2 {
         });
     }
 
-    /*private static void resolverPunto3(List<Candidato> candidatos) {
+
+    private static void resolverPunto3(List<Candidato> candidatos) {
         // TODO: Realizar implementación.
         Stream<Candidato> streamCandidatos = candidatos.stream()
                 .sorted(candidatoComparatorSalarioDescendente());
@@ -104,7 +105,6 @@ public class EvaluacionTecnicaPil2 {
         };
     }
 
-     */
 
     private static void resolverPunto4() {
         // TODO: Realizar implementación.
