@@ -3,7 +3,7 @@ package com.pil.moby.evaluacion_tecnica.modelo.pojo;
 import java.util.List;
 import java.util.Objects;
 
-public class Candidato {
+public class Candidato implements Comparable<Candidato>{
 
     private Long id;
     private String nombre;
@@ -88,5 +88,10 @@ public class Candidato {
         return "--------------Candidato: " + nombre + " " + apellido + "--------------" + '\n' +
                 "Anios de Experiencia: " + aniosExperiencia + " anios" + '\n' +
                 "Pretencion Salarial: $" + pretencionSalarial;
+    }
+
+    @Override
+    public int compareTo(Candidato o) {
+        return this.id.compareTo(o.id);
     }
 }
